@@ -46,6 +46,11 @@ ul {
   padding-left: 1.2rem;
 }
 
+header img{
+  width: 170px;
+  height: 120px;
+}
+
 .container {
   width: min(92%, var(--container));
   margin: 0 auto;
@@ -94,6 +99,7 @@ ul {
   background: rgba(15, 24, 17, 0.35);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid rgba(255,255,255,0.08);
+  height: 100px;
 }
 
 .nav {
