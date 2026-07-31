@@ -48,8 +48,10 @@ ul {
 }
 
 header img{
+  position: relative;
   width: 170px;
-  height: 120px;
+  height: 100px;
+  left: -400px;
 }
 
 .container {
@@ -107,13 +109,18 @@ header img{
   min-height: 76px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  gap: 24px;
+  justify-content: center;
+  
+  
 }
+
+
+
+
 
 .logo {
   font-family: "Cormorant Garamond", serif;
-  font-size: 2rem;
+  font-size: 1rem;
   font-weight: 700;
   color: var(--white);
 }
@@ -125,12 +132,16 @@ header img{
 .menu {
   display: flex;
   align-items: center;
-  gap: 24px;
+  gap: 84px;
   color: var(--white);
 }
 
 .menu a {
   font-weight: 500;
+}
+
+.menu a:hover {
+  color: var(--grass-green);
 }
 
 .menu-toggle {
@@ -191,7 +202,7 @@ header img{
   width: 100%;
   height: 100%;
   object-fit: cover;
-  filter: brightness(1.62) saturate(1.02) contrast(0.92);
+  filter: brightness(1.12) saturate(1.02) contrast(0.92);
 }
 
 .hero-overlay {
@@ -361,21 +372,6 @@ header img{
 
 .gallery {
   background: #f8faf7;
-}
-
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 18px;
-  margin-bottom: 24px;
-}
-
-.gallery-grid img {
-  width: 100%;
-  height: 280px;
-  object-fit: cover;
-  border-radius: 16px;
-  box-shadow: var(--shadow);
 }
 
 .video-carousel {
