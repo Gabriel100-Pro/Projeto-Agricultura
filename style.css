@@ -3,6 +3,7 @@
   --green-800: #274a34;
   --green-700: #2f5d3f;
   --green-500: #5b8a63;
+  --grass-green: #69b34c;
   --green-100: #edf4ee;
   --sand: #f6f1e8;
   --white: #ffffff;
@@ -190,14 +191,15 @@ header img{
   width: 100%;
   height: 100%;
   object-fit: cover;
+  filter: brightness(1.22) saturate(1.02) contrast(0.92);
 }
 
 .hero-overlay {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(to right, rgba(10, 20, 12, 0.72), rgba(10, 20, 12, 0.36)),
-    linear-gradient(to top, rgba(10, 20, 12, 0.48), rgba(10, 20, 12, 0.15));
+    linear-gradient(to right, rgba(10, 20, 12, 0.48), rgba(10, 20, 12, 0.22)),
+    linear-gradient(to top, rgba(10, 20, 12, 0.30), rgba(10, 20, 12, 0.08));
 }
 
 .hero-content {
@@ -376,18 +378,63 @@ header img{
   box-shadow: var(--shadow);
 }
 
-.video-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 18px;
+.video-carousel {
+  position: relative;
+  margin-top: 8px;
 }
 
-.video-grid video {
-  width: 100%;
-  border-radius: 16px;
+.video-stage {
+  border-radius: 18px;
   overflow: hidden;
   box-shadow: var(--shadow);
   background: #000;
+}
+
+.video-stage video {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  background: #000;
+}
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  border: 1px solid rgba(31, 58, 42, 0.2);
+  background: var(--grass-green);
+  color: var(--white);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  cursor: pointer;
+  box-shadow: 0 14px 30px rgba(36, 71, 28, 0.25);
+  transition: transform 0.2s ease, background 0.2s ease;
+  z-index: 2;
+}
+
+.carousel-prev {
+  left: 14px;
+}
+
+.carousel-next {
+  right: 14px;
+}
+
+.carousel-arrow:hover {
+  background: #5ea643;
+}
+
+.carousel-arrow:active {
+  transform: translateY(-50%) scale(0.96);
+}
+
+.video-source-list {
+  display: none;
 }
 
 .highlights {
@@ -510,8 +557,7 @@ header img{
   .services-grid,
   .highlights-grid,
   .contact-box,
-  .gallery-grid,
-  .video-grid {
+  .gallery-grid {
     grid-template-columns: 1fr;
   }
 
@@ -557,6 +603,19 @@ header img{
 
   .hero h1 {
     line-height: 1;
+  }
+
+  .carousel-arrow {
+    width: 44px;
+    height: 44px;
+  }
+
+  .carousel-prev {
+    left: 10px;
+  }
+
+  .carousel-next {
+    right: 10px;
   }
 
   .whatsapp-float {

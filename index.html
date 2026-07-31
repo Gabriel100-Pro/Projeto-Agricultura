@@ -24,7 +24,7 @@
 <body>
   <header class="header">
     <div class="container nav">
-      <img src="./assets/logo.png" alt="">
+      <img src="./assets/logo.png" alt="Raiz Silvestre Logo">
 
       <button class="menu-toggle" id="menuToggle" aria-label="Abrir menu">
         ☰
@@ -229,26 +229,30 @@
           <img src="./assets/vaso Pronto-4.jpeg" alt="Jardim em vaso para ambiente externo" />
         </div>
 
-        <div class="video-grid" data-aos="fade-up" data-aos-duration="1000">
-          <video controls preload="metadata">
-            <source src="assets/paisagismo-1.mp4" type="video/mp4" />
-          </video>
+        <div class="video-carousel" id="videoCarousel" data-aos="fade-up" data-aos-duration="1000">
+          <button class="carousel-arrow carousel-prev" id="carouselPrev" aria-label="Vídeo anterior" type="button">
+            <i class="fa-solid fa-chevron-left"></i>
+          </button>
 
-          <video controls preload="metadata">
-            <source src="./assets/Paisagismo.mp4" type="video/mp4" />
-          </video>
-          <video controls preload="metadata">
-            <source src="./assets/video-cortedegrama.mp4" type="video/mp4" />
-          </video>
-          <video controls preload="metadata">
-            <source src="./assets/video-paisagismo-2.mp4" type="video/mp4" />
-          </video>
-          <video controls preload="metadata">
-            <source src="./assets/video-paisagismo.mp4" type="video/mp4" />
-          </video>
-          <video controls preload="metadata">
-            <source src="./assets/WhatsApp Video 2026-07-12 at 17.59.25.mp4" type="video/mp4" />
-          </video>
+          <div class="video-stage">
+            <video id="galleryVideoPlayer" controls preload="metadata">
+              <source src="assets/paisagismo-1.mp4" type="video/mp4" />
+              Seu navegador não suporta vídeo em HTML5.
+            </video>
+          </div>
+
+          <button class="carousel-arrow carousel-next" id="carouselNext" aria-label="Próximo vídeo" type="button">
+            <i class="fa-solid fa-chevron-right"></i>
+          </button>
+
+          <ul class="video-source-list" id="videoSourceList" hidden>
+            <li data-video-src="assets/paisagismo-1.mp4"></li>
+            <li data-video-src="./assets/Paisagismo.mp4"></li>
+            <li data-video-src="./assets/video-cortedegrama.mp4"></li>
+            <li data-video-src="./assets/video-paisagismo-2.mp4"></li>
+            <li data-video-src="./assets/video-paisagismo.mp4"></li>
+            <li data-video-src="./assets/WhatsApp Video 2026-07-12 at 17.59.25.mp4"></li>
+          </ul>
         </div>
       </div>
     </section>
