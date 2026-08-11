@@ -2,14 +2,62 @@ const menuToggle = document.getElementById("menuToggle");
 const menu = document.getElementById("menu");
 
 if (menuToggle && menu) {
-  menuToggle.addEventListener("click", () => {
-    menu.classList.toggle("open");
+  const setMenuState = (isOpen) => {
+    menu.classList.toggle("open", isOpen);
+    menuToggle.setAttribute("aria-expanded", String(isOpen));
+  };
+
+  let lastTouchTime = 0;
+
+  const toggleMenu = () => {
+    const isOpen = menu.classList.contains("open");
+    setMenuState(!isOpen);
+  };
+
+  menuToggle.addEventListener("touchstart", (event) => {
+    event.preventDefault();
+    lastTouchTime = Date.now();
+    toggleMenu();
+  }, { passive: false });
+
+  menuToggle.addEventListener("click", (event) => {
+    event.preventDefault();
+
+    if (Date.now() - lastTouchTime < 450) {
+      return;
+    }
+
+    toggleMenu();
   });
 
   menu.querySelectorAll("a").forEach((link) => {
     link.addEventListener("click", () => {
-      menu.classList.remove("open");
+      setMenuState(false);
     });
+  });
+
+  document.addEventListener("click", (event) => {
+    const target = event.target;
+
+    if (!(target instanceof Element)) {
+      return;
+    }
+
+    if (!menu.classList.contains("open")) {
+      return;
+    }
+
+    if (menu.contains(target) || menuToggle.contains(target)) {
+      return;
+    }
+
+    setMenuState(false);
+  });
+
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") {
+      setMenuState(false);
+    }
   });
 }
 
