@@ -24,6 +24,9 @@
 html {
   scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
 }
 
 body {
@@ -31,6 +34,8 @@ body {
   color: var(--text);
   background: #fcfcf9;
   line-height: 1.6;
+  width: 100%;
+  max-width: 100%;
   overflow-x: hidden;
 }
 
@@ -61,7 +66,15 @@ ul {
 
 .container {
   width: min(92%, var(--container));
+  max-width: 100%;
   margin: 0 auto;
+}
+
+main,
+.header,
+.hero,
+.section {
+  max-width: 100%;
 }
 
 .section {
@@ -155,6 +168,9 @@ ul {
   color: var(--white);
   font-size: 1.8rem;
   cursor: pointer;
+  line-height: 1;
+  position: relative;
+  z-index: 30;
 }
 
 .btn {
@@ -576,7 +592,14 @@ ul {
 
 @media (max-width: 768px) {
   .menu-toggle {
-    display: block;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 44px;
+    height: 44px;
+    border-radius: 12px;
+    background: rgba(15, 24, 17, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.25);
   }
 
   .header {
@@ -585,6 +608,13 @@ ul {
 
   .nav {
     min-height: 74px;
+    position: relative;
+    justify-content: flex-start;
+    overflow-x: clip;
+  }
+
+  .nav > img {
+    margin-right: auto;
   }
 
   .menu {
@@ -607,6 +637,7 @@ ul {
 
   .hero {
     min-height: 92vh;
+    overflow-x: clip;
   }
 
   .section {
@@ -668,7 +699,13 @@ ul {
 
 @media (max-width: 520px) {
   .container {
-    width: min(94%, var(--container));
+    width: 100%;
+    max-width: 100%;
+    padding-inline: 16px;
+  }
+
+  .menu-toggle {
+    margin-left: 12px;
   }
 
   .section {
@@ -776,7 +813,13 @@ ul {
 
 @media (max-width: 360px) {
   .container {
-    width: 95%;
+    width: 100%;
+    max-width: 100%;
+    padding-inline: 12px;
+  }
+
+  .menu-toggle {
+    margin-left: 8px;
   }
 
   .section {
