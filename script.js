@@ -70,12 +70,18 @@ if (galleryVideoPlayer && carouselPrev && carouselNext && videoSourceList.length
   const videoSources = Array.from(videoSourceList).map((item) => item.dataset.videoSrc).filter(Boolean);
   let currentIndex = 0;
 
+  // Ensure the player always starts with the first source from the configured list.
+  if (videoSources[0]) {
+    galleryVideoPlayer.src = videoSources[0];
+    galleryVideoPlayer.load();
+  }
+
   const setCarouselVideo = (index) => {
     currentIndex = (index + videoSources.length) % videoSources.length;
     const currentSource = videoSources[currentIndex];
 
     galleryVideoPlayer.pause();
-    galleryVideoPlayer.setAttribute("src", currentSource);
+    galleryVideoPlayer.src = currentSource;
     galleryVideoPlayer.load();
   };
 
