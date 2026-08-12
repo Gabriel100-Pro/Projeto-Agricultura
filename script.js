@@ -68,9 +68,21 @@ const videoSourceList = document.querySelectorAll("#videoSourceList li[data-vide
 const servicesSection = document.getElementById("servicos");
 
 if (servicesSection) {
+  servicesSection.classList.add("services-stagger-ready");
+
+  let servicesRevealed = false;
+
   const revealServices = () => {
+    if (servicesRevealed) {
+      return;
+    }
+
+    servicesRevealed = true;
     servicesSection.classList.add("services-animate");
   };
+
+  // Failsafe for browsers/devices where IntersectionObserver can be inconsistent.
+  const servicesFallbackTimeout = window.setTimeout(revealServices, 1800);
 
   if ("IntersectionObserver" in window) {
     const servicesObserver = new IntersectionObserver(
@@ -82,6 +94,7 @@ if (servicesSection) {
 
           if (entry.intersectionRatio >= 0.28) {
             revealServices();
+            window.clearTimeout(servicesFallbackTimeout);
             observer.unobserve(entry.target);
           }
         });
@@ -94,6 +107,7 @@ if (servicesSection) {
     servicesObserver.observe(servicesSection);
   } else {
     revealServices();
+    window.clearTimeout(servicesFallbackTimeout);
   }
 }
 
@@ -101,10 +115,37 @@ if (galleryVideoPlayer && carouselPrev && carouselNext && videoSourceList.length
   const videoSources = Array.from(videoSourceList).map((item) => item.dataset.videoSrc).filter(Boolean);
   let currentIndex = 0;
 
+  const primeInitialVideoFrame = () => {
+    if (galleryVideoPlayer.dataset.framePrimed === "true") {
+      return;
+    }
+
+    const setFirstFrame = () => {
+      if (galleryVideoPlayer.dataset.framePrimed === "true") {
+        return;
+      }
+
+      try {
+        galleryVideoPlayer.currentTime = 0.01;
+        galleryVideoPlayer.dataset.framePrimed = "true";
+      } catch (_error) {
+        // Ignore iOS timing edge-cases; metadata listener will retry.
+      }
+    };
+
+    if (galleryVideoPlayer.readyState >= 1) {
+      setFirstFrame();
+    }
+
+    galleryVideoPlayer.addEventListener("loadedmetadata", setFirstFrame, { once: true });
+    galleryVideoPlayer.addEventListener("loadeddata", setFirstFrame, { once: true });
+  };
+
   // Ensure the player always starts with the first source from the configured list.
   if (videoSources[0]) {
     galleryVideoPlayer.src = videoSources[0];
     galleryVideoPlayer.load();
+    primeInitialVideoFrame();
   }
 
   const setCarouselVideo = (index) => {
@@ -113,8 +154,16 @@ if (galleryVideoPlayer && carouselPrev && carouselNext && videoSourceList.length
 
     galleryVideoPlayer.pause();
     galleryVideoPlayer.src = currentSource;
+    galleryVideoPlayer.dataset.framePrimed = "false";
     galleryVideoPlayer.load();
+    primeInitialVideoFrame();
   };
+
+  galleryVideoPlayer.addEventListener("error", () => {
+    if (videoSources.length > 1) {
+      setCarouselVideo(currentIndex + 1);
+    }
+  });
 
   carouselPrev.addEventListener("click", () => {
     setCarouselVideo(currentIndex - 1);

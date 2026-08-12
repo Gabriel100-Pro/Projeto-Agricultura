@@ -322,29 +322,32 @@ main,
   position: relative;
   width: 100%;
   min-height: 460px;
+}
+
+.services.services-stagger-ready .service-card {
   opacity: 0;
   transform: translateY(22px);
 }
 
-.services.services-animate .service-card {
+.services.services-stagger-ready.services-animate .service-card {
   opacity: 1;
   transform: translateY(0);
   transition: opacity 650ms cubic-bezier(0.22, 0.72, 0.22, 1), transform 650ms cubic-bezier(0.22, 0.72, 0.22, 1), box-shadow 280ms ease, border-color 280ms ease;
 }
 
-.services.services-animate .service-card:nth-child(1) {
+.services.services-stagger-ready.services-animate .service-card:nth-child(1) {
   transition-delay: 40ms;
 }
 
-.services.services-animate .service-card:nth-child(2) {
+.services.services-stagger-ready.services-animate .service-card:nth-child(2) {
   transition-delay: 220ms;
 }
 
-.services.services-animate .service-card:nth-child(3) {
+.services.services-stagger-ready.services-animate .service-card:nth-child(3) {
   transition-delay: 400ms;
 }
 
-.services.services-animate .service-card:nth-child(4) {
+.services.services-stagger-ready.services-animate .service-card:nth-child(4) {
   transition-delay: 580ms;
 }
 
@@ -991,7 +994,7 @@ main,
 
 @media (prefers-reduced-motion: reduce) {
   .service-card,
-  .services.services-animate .service-card {
+  .services.services-stagger-ready.services-animate .service-card {
     opacity: 1 !important;
     transform: none !important;
     transition: none !important;
