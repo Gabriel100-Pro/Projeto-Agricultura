@@ -65,6 +65,37 @@ const galleryVideoPlayer = document.getElementById("galleryVideoPlayer");
 const carouselPrev = document.getElementById("carouselPrev");
 const carouselNext = document.getElementById("carouselNext");
 const videoSourceList = document.querySelectorAll("#videoSourceList li[data-video-src]");
+const servicesSection = document.getElementById("servicos");
+
+if (servicesSection) {
+  const revealServices = () => {
+    servicesSection.classList.add("services-animate");
+  };
+
+  if ("IntersectionObserver" in window) {
+    const servicesObserver = new IntersectionObserver(
+      (entries, observer) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) {
+            return;
+          }
+
+          if (entry.intersectionRatio >= 0.28) {
+            revealServices();
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      {
+        threshold: [0.2, 0.28, 0.36]
+      }
+    );
+
+    servicesObserver.observe(servicesSection);
+  } else {
+    revealServices();
+  }
+}
 
 if (galleryVideoPlayer && carouselPrev && carouselNext && videoSourceList.length > 0) {
   const videoSources = Array.from(videoSourceList).map((item) => item.dataset.videoSrc).filter(Boolean);
