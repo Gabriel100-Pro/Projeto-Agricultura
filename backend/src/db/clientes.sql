@@ -1,0 +1,11 @@
+CREATE TABLE IF NOT EXISTS clientes (
+  id SERIAL PRIMARY KEY,
+  nome VARCHAR(150) NOT NULL,
+  cpf VARCHAR(11) NOT NULL UNIQUE,
+  email VARCHAR(150),
+  telefone VARCHAR(20),
+  endereco VARCHAR(255),
+  criado_em TIMESTAMP NOT NULL DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS idx_clientes_cpf ON clientes (cpf);

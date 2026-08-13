@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Página não encontrada | Raiz Silvestre</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+  <style>
+    .not-found-shell {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 40px 20px;
+      background: var(--white);
+    }
+    .not-found-card {
+      max-width: 520px;
+    }
+    .not-found-icon {
+      width: 84px;
+      height: 84px;
+      border-radius: 50%;
+      background: var(--green-100);
+      color: var(--grass-green);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.2rem;
+      margin: 0 auto 22px;
+    }
+    .not-found-card h1 {
+      font-family: "Cormorant Garamond", serif;
+      font-size: clamp(2.4rem, 5vw, 3.4rem);
+      color: var(--green-900);
+      margin-bottom: 12px;
+    }
+    .not-found-card p {
+      color: var(--muted);
+      margin-bottom: 28px;
+    }
+    .not-found-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      justify-content: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="not-found-shell">
+    <div class="not-found-card">
+      <div class="not-found-icon" aria-hidden="true">
+        <i class="fa-solid fa-seedling"></i>
+      </div>
+      <p class="section-tag" style="justify-content:center; display:flex;">Erro 404</p>
+      <h1>Esta página não foi encontrada</h1>
+      <p>
+        O endereço que você tentou acessar não existe ou foi movido. Volte para o
+        site da Raiz Silvestre ou acesse o Portal do Cliente.
+      </p>
+      <div class="not-found-actions">
+        <a class="btn hero-btn-primary" href="/index.html">
+          <i class="fa-solid fa-house"></i>
+          <span>Voltar ao início</span>
+        </a>
+        <a class="btn btn-outline" style="color:var(--green-900); border-color:var(--green-900);" href="/registro.html">
+          <i class="fa-solid fa-user"></i>
+          <span>Seu Registro</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

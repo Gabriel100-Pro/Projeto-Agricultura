@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Entrar | Portal do Cliente — Raiz Silvestre</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="../../style.css" />
+  <link rel="stylesheet" href="../assets/portal.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+</head>
+<body class="registro-page">
+  <a class="registro-page-back" href="../../registro.html" aria-label="Voltar para Seu Registro">
+    <i class="fa-solid fa-arrow-left" aria-hidden="true"></i>
+    <span>Voltar</span>
+  </a>
+
+  <main class="registro-page-shell">
+    <div class="registro-page-header">
+      <img class="registro-page-logo" src="../../assets/ChatGPT Image 30 de jul. de 2026, 22_24_22.png" alt="Raiz Silvestre" />
+      <h1>Seu Registro</h1>
+      <p>Acesse o histórico completo do seu jardim</p>
+    </div>
+
+    <div class="portal-login-card">
+      <h2>Entre com seu CPF</h2>
+      <p class="portal-login-card-subtitle">Digite seu CPF para acessar seu histórico de serviços</p>
+
+      <form id="portalLoginForm" novalidate>
+        <div class="portal-field">
+          <label for="portalCpf">CPF</label>
+          <input
+            id="portalCpf"
+            name="cpf"
+            type="text"
+            inputmode="numeric"
+            placeholder="000.000.000-00"
+            maxlength="14"
+            autocomplete="off"
+            required
+          />
+          <p class="portal-field-error" id="portalCpfError" role="alert"></p>
+        </div>
+
+        <div class="portal-cpf-not-found" id="portalCpfNotFound" role="alert" hidden>
+          <i class="fa-solid fa-circle-exclamation" aria-hidden="true"></i>
+          <p id="portalCpfNotFoundText"></p>
+        </div>
+
+        <button class="portal-login-submit" type="submit" id="portalLoginSubmit">
+          <span class="portal-login-submit-label">Entrar</span>
+          <i class="fa-solid fa-spinner fa-spin portal-login-spinner" hidden></i>
+        </button>
+
+        <p class="portal-message" id="portalLoginMessage" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+
+    <p class="portal-security-note">
+      <i class="fa-solid fa-shield-halved" aria-hidden="true"></i>
+      <span>Seus dados estão protegidos e são utilizados apenas para consulta do seu histórico.</span>
+    </p>
+
+    <p class="portal-login-footer">
+      Ainda não tem acesso? <a href="https://wa.me/5511942842007?text=Ol%C3%A1%2C%20gostaria%20de%20criar%20meu%20registro%20de%20cliente." target="_blank" rel="noopener noreferrer">Fale conosco</a>
+    </p>
+  </main>
+
+  <svg class="registro-page-leaves" viewBox="0 0 1440 160" preserveAspectRatio="none" aria-hidden="true">
+    <path d="M0 120 C 180 60, 340 150, 520 90 S 860 40, 1040 100 S 1300 70, 1440 110 L1440 160 L0 160 Z" fill="#5FAF3A" opacity="0.12" />
+    <path d="M0 140 C 220 90, 380 160, 560 120 S 900 80, 1080 130 S 1320 100, 1440 135 L1440 160 L0 160 Z" fill="#1F4D2E" opacity="0.1" />
+  </svg>
+
+  <script src="../assets/portal.js"></script>
+</body>
+</html>

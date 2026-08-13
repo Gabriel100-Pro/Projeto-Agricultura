@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Seu Registro | Raiz Silvestre</title>
+  <meta
+    name="description"
+    content="Acesse o Portal do Cliente Raiz Silvestre para acompanhar seus orçamentos e histórico de serviços."
+  />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="portal/assets/portal.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+</head>
+<body>
+  <header class="header">
+    <div class="container nav header-inner">
+      <a class="brand" href="index.html" aria-label="Raiz Silvestre, voltar ao início">
+        <img src="./assets/ChatGPT Image 30 de jul. de 2026, 22_24_22.png" alt="Raiz Silvestre" />
+        <span class="brand-copy">
+          <strong>Raiz Silvestre</strong>
+          <small>JARDINAGEM • PAISAGISMO • MANUTENÇÃO</small>
+        </span>
+      </a>
+
+      <nav class="menu header-menu" id="menu">
+        <a href="index.html#sobre">Sobre</a>
+        <a href="index.html#servicos">Serviços</a>
+        <a href="index.html#galeria">Galeria</a>
+        <a href="index.html#contato">Orçamento</a>
+        <a href="registro.html" class="nav-registro-btn nav-registro-btn-active">
+          <i class="fa-solid fa-user"></i>
+          <span>Seu Registro</span>
+        </a>
+        <a
+          class="header-menu-cta-mobile"
+          href="https://wa.me/5511942842007?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento."
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fa-brands fa-whatsapp"></i>
+          <span>Fale conosco</span>
+        </a>
+      </nav>
+
+      <a
+        class="header-cta"
+        href="https://wa.me/5511942842007?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento."
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <i class="fa-brands fa-whatsapp"></i>
+        <span>Fale conosco</span>
+      </a>
+
+      <button
+        class="menu-toggle"
+        id="menuToggle"
+        type="button"
+        aria-label="Abrir menu"
+        aria-controls="menu"
+        aria-expanded="false"
+      >
+        ☰
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <section class="section registro-hero" id="registro">
+      <div class="container">
+        <div class="section-heading" style="margin-left:auto;margin-right:auto;text-align:center;max-width:680px;">
+          <p class="section-tag">Portal do Cliente</p>
+          <h2>Seu Registro</h2>
+          <p>
+            Acompanhe seus orçamentos, o andamento dos serviços contratados e todo o
+            histórico de atendimentos da Raiz Silvestre em um só lugar.
+          </p>
+        </div>
+
+        <div class="registro-grid">
+          <article class="registro-card">
+            <div class="registro-card-icon">
+              <i class="fa-solid fa-right-to-bracket"></i>
+            </div>
+            <h3>Já tem uma conta?</h3>
+            <p>Acesse o portal com seu e-mail e senha para ver seus dados atualizados.</p>
+            <a class="btn registro-btn" href="portal/login/index.html">
+              <span>Entrar no Portal</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </article>
+
+          <article class="registro-card">
+            <div class="registro-card-icon">
+              <i class="fa-solid fa-clock-rotate-left"></i>
+            </div>
+            <h3>Histórico de serviços</h3>
+            <p>Consulte todos os orçamentos e serviços já realizados para o seu endereço.</p>
+            <a class="btn btn-outline registro-btn registro-btn-outline" href="portal/historico/index.html">
+              <span>Ver Histórico</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </article>
+
+          <article class="registro-card">
+            <div class="registro-card-icon">
+              <i class="fa-solid fa-chart-line"></i>
+            </div>
+            <h3>Painel do cliente</h3>
+            <p>Visualize o status dos seus projetos e próximos agendamentos.</p>
+            <a class="btn btn-outline registro-btn registro-btn-outline" href="portal/dashboard/index.html">
+              <span>Ir para o Dashboard</span>
+              <i class="fa-solid fa-arrow-right"></i>
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container footer-content">
+      <div>
+        <h3>Raiz Silvestre</h3>
+        <p>Jardinagem, paisagismo e manutenção de jardins em Jundiaí e região.</p>
+      </div>
+
+      <div>
+        <p>© 2026 Raiz Silvestre. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <a
+    href="https://wa.me/5511942842007"
+    class="whatsapp-float"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Falar no WhatsApp"
+    title="Falar no WhatsApp"
+  >
+    <i class="fa-brands fa-whatsapp"></i>
+  </a>
+
+  <script src="script.js"></script>
+</body>
+</html>

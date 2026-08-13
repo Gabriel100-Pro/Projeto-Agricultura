@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Documentos | Portal do Cliente — Raiz Silvestre</title>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link rel="stylesheet" href="../../style.css" />
+  <link rel="stylesheet" href="../assets/portal.css" />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+  />
+</head>
+<body class="portal-body" data-portal-page="documentos">
+  <header class="portal-header">
+    <div class="container portal-header-inner">
+      <a class="portal-brand" href="../../index.html">
+        <img src="../../assets/ChatGPT Image 30 de jul. de 2026, 22_24_22.png" alt="Raiz Silvestre" />
+        <span>Raiz Silvestre</span>
+      </a>
+      <a class="portal-back-link" href="../../index.html">
+        <i class="fa-solid fa-arrow-left"></i>
+        <span>Voltar ao site</span>
+      </a>
+      <button class="portal-menu-toggle" id="portalMenuToggle" type="button" aria-label="Abrir menu do portal" aria-controls="portalSidebar" aria-expanded="false">
+        <i class="fa-solid fa-bars" aria-hidden="true"></i>
+      </button>
+    </div>
+  </header>
+
+  <div class="portal-shell">
+    <div class="portal-sidebar-overlay" id="portalSidebarOverlay"></div>
+    <aside class="portal-sidebar" id="portalSidebar">
+      <div class="portal-sidebar-logo">
+        <img src="../../assets/ChatGPT Image 30 de jul. de 2026, 22_24_22.png" alt="Raiz Silvestre" />
+        <span>Raiz Silvestre</span>
+      </div>
+      <a href="../dashboard/index.html">
+        <i class="fa-solid fa-gauge"></i>
+        <span>Dashboard</span>
+      </a>
+      <a href="../historico/index.html">
+        <i class="fa-solid fa-clock-rotate-left"></i>
+        <span>Histórico de Serviços</span>
+      </a>
+      <a href="../fotos/index.html">
+        <i class="fa-solid fa-images"></i>
+        <span>Fotos</span>
+      </a>
+      <a href="../visitas/index.html">
+        <i class="fa-solid fa-calendar-check"></i>
+        <span>Próximas Visitas</span>
+      </a>
+      <a href="index.html" class="active">
+        <i class="fa-solid fa-file-lines"></i>
+        <span>Documentos</span>
+      </a>
+      <a href="../meus-dados/index.html">
+        <i class="fa-solid fa-user-pen"></i>
+        <span>Meus Dados</span>
+      </a>
+      <a href="../login/index.html" class="portal-logout" id="portalLogoutBtn">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        <span>Sair</span>
+      </a>
+    </aside>
+
+    <main class="portal-content">
+      <h1>Documentos</h1>
+      <p class="portal-subtitle">Contratos, orçamentos e recibos ficarão disponíveis aqui.</p>
+
+      <div class="portal-empty-state">
+        <i class="fa-solid fa-folder-open"></i>
+        <p>Nenhum documento disponível no momento.</p>
+      </div>
+    </main>
+  </div>
+
+  <script src="../assets/portal.js"></script>
+</body>
+</html>

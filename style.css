@@ -625,6 +625,32 @@ main,
   display: none;
 }
 
+.nav-registro-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 40px;
+  padding: 0 18px;
+  border-radius: 999px;
+  background: #5FAF3A;
+  color: var(--white) !important;
+  font-weight: 700;
+  font-size: clamp(0.9rem, 1vw, 0.98rem);
+  white-space: nowrap;
+  box-shadow: 0 10px 20px rgba(95, 175, 58, 0.22);
+  transition: transform 200ms ease, box-shadow 200ms ease, background 200ms ease;
+}
+
+.nav-registro-btn:hover {
+  background: #529a31;
+  transform: translateY(-1px);
+  box-shadow: 0 12px 24px rgba(95, 175, 58, 0.28);
+}
+
+.nav-registro-btn i {
+  font-size: 0.9rem;
+}
+
 .header-cta {
   display: inline-flex;
   align-items: center;
@@ -2005,6 +2031,11 @@ main,
     width: 100%;
     font-size: 0.98rem;
     padding: 6px 2px;
+  }
+
+  .header-menu a.nav-registro-btn {
+    justify-content: center;
+    padding: 0 18px;
   }
 
   .header-menu-cta-mobile {
