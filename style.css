@@ -2317,17 +2317,55 @@ main,
 }
 
 @media (max-width: 768px) {
-  .selo-topo {
-    left: 10px;
+  .sobre-imagem {
+    overflow: hidden;
+    margin-bottom: 58px;
   }
 
-  .selo-base {
-    right: 10px;
+  .sobre-imagem img {
+    width: 100%;
+    height: auto;
+    display: block;
   }
 
   .sobre-selo {
-    width: 90%;
-    padding: 14px 16px;
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    width: calc(100% - 24px);
+    max-width: 300px;
+    padding: 12px 14px;
+    border-radius: 16px;
+    gap: 10px;
+    z-index: 3;
+  }
+
+  .sobre-selo:hover {
+    transform: translateX(-50%) translateY(-4px);
+  }
+
+  .selo-topo {
+    top: 12px;
+  }
+
+  .selo-base {
+    bottom: 12px;
+  }
+
+  .selo-icone {
+    width: 40px;
+    height: 40px;
+    font-size: 18px;
+  }
+
+  .selo-texto strong {
+    font-size: 15px;
+    line-height: 1.3;
+  }
+
+  .selo-texto small {
+    font-size: 12px;
+    line-height: 1.3;
   }
 }
 
