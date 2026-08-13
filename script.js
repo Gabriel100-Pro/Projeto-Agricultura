@@ -176,12 +176,13 @@ const testimonialsGroup = document.getElementById("testimonialsGroup");
 if (testimonialsSection && testimonialsCarousel && testimonialsTrack && testimonialsGroup) {
   const duplicateGroup = testimonialsGroup.cloneNode(true);
   duplicateGroup.id = "testimonialsGroupClone";
-  duplicateGroup.querySelectorAll("[data-aos]").forEach((element) => {
+  testimonialsTrack.appendChild(duplicateGroup);
+
+  testimonialsTrack.querySelectorAll(".testimonial-card[data-aos]").forEach((element) => {
     element.removeAttribute("data-aos");
     element.removeAttribute("data-aos-delay");
     element.removeAttribute("data-aos-duration");
   });
-  testimonialsTrack.appendChild(duplicateGroup);
 
   const testimonialCards = Array.from(testimonialsTrack.querySelectorAll(".testimonial-card"));
   const motionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
