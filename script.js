@@ -376,6 +376,43 @@ if (galleryVideoPlayer && carouselPrev && carouselNext && videoSourceList.length
   });
 }
 
+const orcamentoForm = document.querySelector(".orcamento-form");
+
+if (orcamentoForm) {
+  const orcamentoSucesso = document.getElementById("orcamentoSucesso");
+
+  orcamentoForm.addEventListener("submit", (event) => {
+    event.preventDefault();
+
+    const nome = (orcamentoForm.querySelector('input[name="nome"]')?.value || "").trim();
+    const whatsapp = (orcamentoForm.querySelector('input[name="whatsapp"]')?.value || "").trim();
+    const servicoSelect = orcamentoForm.querySelector('select[name="servico"]');
+    const mensagem = (orcamentoForm.querySelector('textarea[name="mensagem"]')?.value || "").trim();
+
+    const servico = servicoSelect && servicoSelect.selectedIndex >= 0
+      ? servicoSelect.options[servicoSelect.selectedIndex].text
+      : "Não informado";
+
+    const textoWhatsapp = [
+      "Olá! Gostaria de solicitar um orçamento.",
+      "",
+      `Nome: ${nome}`,
+      `WhatsApp: ${whatsapp}`,
+      `Serviço desejado: ${servico}`,
+      `Mensagem: ${mensagem}`
+    ].join("\n");
+
+    const urlWhatsapp = `https://wa.me/5511942842007?text=${encodeURIComponent(textoWhatsapp)}`;
+    window.open(urlWhatsapp, "_blank", "noopener,noreferrer");
+
+    if (orcamentoSucesso) {
+      orcamentoSucesso.hidden = false;
+    }
+
+    orcamentoForm.reset();
+  });
+}
+
 AOS.init({
   duration: 900,
   easing: "ease-out-cubic",
