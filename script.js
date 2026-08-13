@@ -111,6 +111,63 @@ if (servicesSection) {
   }
 }
 
+const benefitsMarquee = document.getElementById("beneficios-faixa");
+const benefitsMarqueeTrack = document.getElementById("benefitsMarqueeTrack");
+
+if (benefitsMarquee && benefitsMarqueeTrack) {
+  const benefitCards = Array.from(benefitsMarqueeTrack.querySelectorAll(".benefit-card"));
+  let benefitsPaused = false;
+
+  const setBenefitsPaused = (paused) => {
+    benefitsPaused = paused;
+    benefitsMarquee.classList.toggle("is-paused", paused);
+    benefitCards.forEach((card) => {
+      card.setAttribute("aria-pressed", String(paused));
+    });
+  };
+
+  const toggleBenefitsPaused = () => {
+    setBenefitsPaused(!benefitsPaused);
+  };
+
+  benefitsMarqueeTrack.addEventListener("click", (event) => {
+    const card = event.target.closest(".benefit-card");
+
+    if (!card || !benefitsMarqueeTrack.contains(card)) {
+      return;
+    }
+
+    toggleBenefitsPaused();
+  });
+
+  benefitsMarqueeTrack.addEventListener("keydown", (event) => {
+    const card = event.target.closest(".benefit-card");
+
+    if (!card || !benefitsMarqueeTrack.contains(card)) {
+      return;
+    }
+
+    if (event.key !== "Enter" && event.key !== " ") {
+      return;
+    }
+
+    event.preventDefault();
+    toggleBenefitsPaused();
+  });
+
+  const reduceMotionQuery = window.matchMedia("(prefers-reduced-motion: reduce)");
+
+  if (reduceMotionQuery.matches) {
+    setBenefitsPaused(true);
+  }
+
+  reduceMotionQuery.addEventListener?.("change", (event) => {
+    if (event.matches) {
+      setBenefitsPaused(true);
+    }
+  });
+}
+
 const testimonialsSection = document.querySelector(".testimonials");
 const testimonialsCarousel = document.querySelector(".testimonials-carousel");
 const testimonialsTrack = document.getElementById("testimonialsTrack");

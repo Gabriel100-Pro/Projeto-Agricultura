@@ -23,9 +23,40 @@
 </head>
 <body>
   <header class="header">
-    <div class="container nav">
-    
-      <img src="./assets/ChatGPT Image 30 de jul. de 2026, 22_24_22.png" alt="Raiz Silvestre Logo">
+    <div class="container nav header-inner">
+      <a class="brand" href="#hero" aria-label="Raiz Silvestre, voltar ao início">
+        <img src="./assets/ChatGPT Image 30 de jul. de 2026, 22_24_22.png" alt="Raiz Silvestre" />
+        <span class="brand-copy">
+          <strong>Raiz Silvestre</strong>
+          <small>JARDINAGEM • PAISAGISMO • MANUTENÇÃO</small>
+        </span>
+      </a>
+
+      <nav class="menu header-menu" id="menu">
+        <a href="#sobre">Sobre</a>
+        <a href="#servicos">Serviços</a>
+        <a href="#galeria">Galeria</a>
+        <a href="#contato">Orçamento</a>
+        <a
+          class="header-menu-cta-mobile"
+          href="https://wa.me/5511942842007?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento."
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i class="fa-brands fa-whatsapp"></i>
+          <span>Fale conosco</span>
+        </a>
+      </nav>
+
+      <a
+        class="header-cta"
+        href="https://wa.me/5511942842007?text=Ol%C3%A1%2C%20gostaria%20de%20solicitar%20um%20or%C3%A7amento."
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <i class="fa-brands fa-whatsapp"></i>
+        <span>Fale conosco</span>
+      </a>
 
       <button
         class="menu-toggle"
@@ -37,79 +68,198 @@
       >
         ☰
       </button>
-
-      <nav class="menu" id="menu">
-        <a href="#sobre">Sobre</a>
-        <a href="#servicos">Serviços</a>
-        <a href="#galeria">Galeria</a>
-        <a href="#contato" class="btn btn-sm">Orçamento</a>
-      </nav>
     </div>
   </header>
 
   <main>
     <section class="hero" id="hero">
-      <video class="hero-video" autoplay muted loop playsinline>
-        <source src="assets/WhatsApp Video 2026-07-30 at 22.11.24 (1).mp4" type="video/mp4" />
-        Seu navegador não suporta vídeo em HTML5.
-      </video>
+      <div class="container hero-shell">
+        <div class="hero-copy">
+          <p class="eyebrow hero-eyebrow">
+            <i class="fa-solid fa-leaf"></i>
+            <span>JARDINAGEM • PAISAGISMO • MANUTENÇÃO</span>
+          </p>
 
-      <div class="hero-overlay"></div>
+          <h1>
+            <span>Transformamos</span>
+            <span>espaços em</span>
+            <span class="hero-title-accent">natureza viva</span>
+          </h1>
 
-      <div class="container hero-content" data-aos="fade-up" data-aos-duration="1200">
-        <p class="eyebrow">Jardinagem • Paisagismo • Manutenção</p>
-        <h1>Raiz Silvestre</h1>
-        <p class="hero-text">
-          Transformamos jardins, canteiros, vasos e espaços verdes em ambientes
-          agradáveis, bem cuidados e em harmonia com a natureza.
-        </p>
-        <p class="hero-location">Atendemos Jundiaí e região.</p>
+          <div class="hero-line" aria-hidden="true"></div>
 
-        <div class="hero-actions">
-          <a href="#contato" class="btn">Solicitar orçamento</a>
-          <a href="#servicos" class="btn btn-outline">Ver serviços</a>
+          <p class="hero-text">
+            Criamos e cuidamos de jardins que inspiram bem-estar,<br />
+            valorizam ambientes e conectam você ao que há de melhor:<br />
+            a natureza.
+          </p>
+
+          <div class="hero-actions">
+            <a href="#contato" class="btn hero-btn-primary">
+              <i class="fa-solid fa-leaf"></i>
+              <span>Solicitar orçamento</span>
+            </a>
+            <a href="#servicos" class="btn btn-outline hero-btn-secondary">
+              <i class="fa-regular fa-calendar"></i>
+              <span>Ver serviços</span>
+            </a>
+          </div>
+
+          <div class="hero-proof">
+            <div class="hero-proof-avatars" aria-hidden="true">
+              <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=120&q=80" alt="" />
+              <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=120&q=80" alt="" />
+              <img src="https://images.unsplash.com/photo-1438761681033-6461ffad8d80?auto=format&fit=crop&w=120&q=80" alt="" />
+              <img src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?auto=format&fit=crop&w=120&q=80" alt="" />
+            </div>
+
+            <div class="hero-proof-copy">
+              <strong>+200 clientes satisfeitos</strong>
+              <span>em Jundiaí e região</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-visual">
+          <img
+            class="hero-image"
+            src="./assets/img-fundo-hero.png"
+            alt="Jardim profissional com jardineiro realizando a manutenção em uma área verde"
+            width="1536"
+            height="1024"
+          />
         </div>
       </div>
     </section>
 
-    <section class="section about" id="sobre">
-      <div class="container grid-2">
-        <div data-aos="fade-right" data-aos-duration="1000">
-          <p class="section-tag">Sobre</p>
-          <img src="./assets/Img-Sobre.jpeg" alt="">
+    <section class="benefits-marquee" id="beneficios-faixa" aria-label="Diferenciais da Raiz Silvestre em movimento contínuo">
+      <div class="benefits-marquee-wrapper" id="benefitsMarqueeWrapper">
+        <div class="benefits-marquee-track" id="benefitsMarqueeTrack">
+          <div class="benefits-marquee-group" id="benefitsMarqueeGroup">
+            <article class="benefit-card" tabindex="0" role="button" aria-pressed="false" aria-label="Pausar ou continuar a esteira de diferenciais">
+              <div class="benefit-icon"><i class="fa-solid fa-leaf"></i></div>
+              <div class="benefit-copy">
+                <h3>Projetos personalizados</h3>
+                <p>Soluções únicas para cada espaço e necessidade.</p>
+              </div>
+            </article>
+
+            <article class="benefit-card" tabindex="0" role="button" aria-pressed="false" aria-label="Pausar ou continuar a esteira de diferenciais">
+              <div class="benefit-icon"><i class="fa-solid fa-seedling"></i></div>
+              <div class="benefit-copy">
+                <h3>Manutenção especializada</h3>
+                <p>Cuidados contínuos para jardins sempre saudáveis e bonitos.</p>
+              </div>
+            </article>
+
+            <article class="benefit-card" tabindex="0" role="button" aria-pressed="false" aria-label="Pausar ou continuar a esteira de diferenciais">
+              <div class="benefit-icon"><i class="fa-solid fa-shield-heart"></i></div>
+              <div class="benefit-copy">
+                <h3>Equipe qualificada</h3>
+                <p>Profissionais experientes e apaixonados pelo que fazem.</p>
+              </div>
+            </article>
+
+            <article class="benefit-card" tabindex="0" role="button" aria-pressed="false" aria-label="Pausar ou continuar a esteira de diferenciais">
+              <div class="benefit-icon"><i class="fa-solid fa-tree"></i></div>
+              <div class="benefit-copy">
+                <h3>Sustentabilidade</h3>
+                <p>Práticas responsáveis que preservam o futuro.</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="benefits-marquee-group" aria-hidden="true">
+            <article class="benefit-card" tabindex="0" role="button" aria-pressed="false" aria-label="Pausar ou continuar a esteira de diferenciais">
+              <div class="benefit-icon"><i class="fa-solid fa-leaf"></i></div>
+              <div class="benefit-copy">
+                <h3>Projetos personalizados</h3>
+                <p>Soluções únicas para cada espaço e necessidade.</p>
+              </div>
+            </article>
+
+            <article class="benefit-card" tabindex="0" role="button" aria-pressed="false" aria-label="Pausar ou continuar a esteira de diferenciais">
+              <div class="benefit-icon"><i class="fa-solid fa-seedling"></i></div>
+              <div class="benefit-copy">
+                <h3>Manutenção especializada</h3>
+                <p>Cuidados contínuos para jardins sempre saudáveis e bonitos.</p>
+              </div>
+            </article>
+
+            <article class="benefit-card" tabindex="0" role="button" aria-pressed="false" aria-label="Pausar ou continuar a esteira de diferenciais">
+              <div class="benefit-icon"><i class="fa-solid fa-shield-heart"></i></div>
+              <div class="benefit-copy">
+                <h3>Equipe qualificada</h3>
+                <p>Profissionais experientes e apaixonados pelo que fazem.</p>
+              </div>
+            </article>
+
+            <article class="benefit-card" tabindex="0" role="button" aria-pressed="false" aria-label="Pausar ou continuar a esteira de diferenciais">
+              <div class="benefit-icon"><i class="fa-solid fa-tree"></i></div>
+              <div class="benefit-copy">
+                <h3>Sustentabilidade</h3>
+                <p>Práticas responsáveis que preservam o futuro.</p>
+              </div>
+            </article>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section sobre-premium" id="sobre">
+      <div class="container sobre-container">
+        <div class="sobre-texto">
+          <p class="sobre-rotulo">
+            <i class="fa-solid fa-leaf" aria-hidden="true"></i>
+            <span>SOBRE NÓS</span>
+          </p>
+
+          <h2 class="sobre-titulo">
+            <span>Raízes que conectam.</span>
+            <span class="sobre-titulo-destaque">Cuidado que transforma.</span>
+          </h2>
+
+          <div class="sobre-linha" aria-hidden="true"></div>
+
+          <div class="sobre-conteudo">
+            <p>
+              A <strong>Raiz Silvestre</strong> nasceu da união entre tradição familiar,
+              amor pela natureza e dedicação à jardinagem.
+            </p>
+
+            <p>
+              O nome da marca carrega um significado especial. A família Silvestre
+              sempre teve uma forte ligação com a jardinagem e o cuidado com as
+              plantas. Ao criar a Raiz Silvestre, <strong>Juliano Silvestre Diogo</strong>
+              buscou resgatar essa história e manter viva uma tradição que atravessa
+              gerações, valorizando as raízes que o conectam a esse trabalho.
+            </p>
+          </div>
         </div>
 
-        <div class="about-text" data-aos="fade-left" data-aos-duration="1000">
-          <p>
-            A <strong>Raiz Silvestre</strong> nasceu da união entre tradição familiar,
-            amor pela natureza e dedicação à jardinagem.
-          </p>
+        <figure class="sobre-imagem">
+          <img src="./assets/Img-Sobre.jpeg" alt="Equipe da Raiz Silvestre em atividade de jardinagem" loading="lazy" />
 
-          <p>
-            O nome da marca carrega um significado especial. A família Silvestre
-            sempre teve uma forte ligação com a jardinagem e o cuidado com as
-            plantas. Ao criar a Raiz Silvestre, <strong>Juliano Silvestre Diogo</strong>
-            buscou resgatar essa história e manter viva uma tradição que atravessa
-            gerações, valorizando as raízes que o conectam a esse trabalho.
-          </p>
+          <figcaption class="sobre-selo selo-topo">
+            <span class="selo-icone" aria-hidden="true">
+              <i class="fa-solid fa-leaf"></i>
+            </span>
+            <span class="selo-texto">
+              <strong>Tradição familiar</strong>
+              <small>Há gerações cuidando de jardins</small>
+            </span>
+          </figcaption>
 
-          <p>
-            Fundada com o propósito de oferecer serviços de criação, revitalização
-            e manutenção de jardins, a Raiz Silvestre une experiência prática e
-            conhecimento técnico adquirido durante a graduação em Agronomia.
-          </p>
-
-          <p>
-            Mais do que cuidar de jardins, buscamos criar espaços agradáveis, bem
-            cuidados e em harmonia com a natureza, sempre com atenção aos detalhes
-            e respeito às necessidades de cada cliente.
-          </p>
-
-          <p>
-            Atendemos <strong>Jundiaí e região</strong>, levando dedicação, confiança
-            e compromisso em cada projeto.
-          </p>
-        </div>
+          <figcaption class="sobre-selo selo-base">
+            <span class="selo-icone" aria-hidden="true">
+              <i class="fa-solid fa-location-dot"></i>
+            </span>
+            <span class="selo-texto">
+              <strong>Jundiaí e região</strong>
+              <small>Atendimento com confiança e dedicação</small>
+            </span>
+          </figcaption>
+        </figure>
       </div>
     </section>
 
