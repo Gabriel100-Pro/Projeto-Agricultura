@@ -355,18 +355,6 @@ main,
   content: none;
 }
 
-.service-card::after {
-  content: "";
-  position: absolute;
-  left: min(65%, 370px);
-  bottom: -22px;
-  width: 112px;
-  height: 64px;
-  border-radius: 100% 0 100% 0;
-  background: linear-gradient(150deg, rgba(193, 222, 190, 0.78), rgba(127, 174, 126, 0.44));
-  transform: rotate(-22deg);
-  pointer-events: none;
-}
 
 .service-card-content {
   padding: 26px 24px 20px;
