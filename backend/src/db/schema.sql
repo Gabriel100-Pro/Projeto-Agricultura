@@ -43,9 +43,34 @@ CREATE INDEX IF NOT EXISTS idx_servicos_data ON servicos (data_servico);
 CREATE TABLE IF NOT EXISTS fotos_servico (
   id SERIAL PRIMARY KEY,
   servico_id INTEGER NOT NULL REFERENCES servicos(id) ON DELETE CASCADE,
-  tipo VARCHAR(10) NOT NULL, -- 'antes' | 'depois'
+  tipo VARCHAR(20) NOT NULL, -- 'antes' | 'depois' | 'geral'
   url TEXT NOT NULL,
+  descricao TEXT,
   criado_em TIMESTAMP NOT NULL DEFAULT NOW()
 );
 
 CREATE INDEX IF NOT EXISTS idx_fotos_servico_servico ON fotos_servico (servico_id);
+
+CREATE TABLE IF NOT EXISTS observacoes (
+  id SERIAL PRIMARY KEY,
+  servico_id INTEGER NOT NULL REFERENCES servicos(id) ON DELETE CASCADE,
+  titulo VARCHAR(255),
+  descricao TEXT NOT NULL,
+  criado_em TIMESTAMP NOT NULL DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS idx_observacoes_servico ON observacoes (servico_id);
+
+CREATE TABLE IF NOT EXISTS proximos_cuidados (
+  id SERIAL PRIMARY KEY,
+  cliente_id INTEGER NOT NULL REFERENCES clientes(id) ON DELETE CASCADE,
+  titulo VARCHAR(255) NOT NULL,
+  descricao TEXT,
+  data_prevista DATE,
+  status VARCHAR(20) NOT NULL DEFAULT 'pendente', -- pendente | concluido | cancelado
+  criado_em TIMESTAMP NOT NULL DEFAULT NOW(),
+  atualizado_em TIMESTAMP NOT NULL DEFAULT NOW()
+);
+
+CREATE INDEX IF NOT EXISTS idx_proximos_cuidados_cliente ON proximos_cuidados (cliente_id);
+CREATE INDEX IF NOT EXISTS idx_proximos_cuidados_data ON proximos_cuidados (data_prevista);

@@ -414,9 +414,11 @@ if (orcamentoForm) {
   });
 }
 
-AOS.init({
-  duration: 900,
-  easing: "ease-out-cubic",
-  once: true,
-  offset: 80
-});
+if (typeof AOS !== "undefined") {
+  AOS.init({
+    duration: 900,
+    easing: "ease-out-cubic",
+    once: true,
+    offset: 80
+  });
+}

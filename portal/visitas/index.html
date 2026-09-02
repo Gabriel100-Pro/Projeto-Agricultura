@@ -73,9 +73,11 @@
       <h1>Próximas Visitas</h1>
       <p class="portal-subtitle">Confira os próximos agendamentos previstos para o seu jardim.</p>
 
-      <div class="portal-empty-state">
-        <i class="fa-solid fa-calendar-days"></i>
-        <p>Nenhuma visita agendada no momento.</p>
+      <div class="portal-cuidados-grid" id="portalVisitasContainer" aria-live="polite">
+        <div class="portal-empty-state">
+          <i class="fa-solid fa-spinner fa-spin"></i>
+          <p>Carregando próximas visitas...</p>
+        </div>
       </div>
     </main>
   </div>

@@ -5,7 +5,7 @@ const { maskCpf } = require("./format");
 // Reúne todos os dados exibidos no dashboard/perfil do cliente autenticado.
 async function getClienteDashboardData(clienteId) {
   const clienteResult = await pool.query(
-    "SELECT id, nome, cpf, telefone, endereco FROM clientes WHERE id = $1",
+    "SELECT id, nome, cpf, email, telefone, endereco FROM clientes WHERE id = $1",
     [clienteId]
   );
 
@@ -44,6 +44,7 @@ async function getClienteDashboardData(clienteId) {
   return {
     nome: cliente.nome,
     cpfMascarado: maskCpf(cliente.cpf),
+    email: cliente.email,
     telefone: cliente.telefone,
     endereco: cliente.endereco,
     resumoJardim: {

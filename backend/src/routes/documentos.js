@@ -14,6 +14,7 @@ const LOGO_PATH = path.join(
   __dirname,
   "../../../assets/ChatGPT Image 30 de jul. de 2026, 22_24_22.png"
 );
+const UPLOADS_DIR = path.join(__dirname, "../../uploads");
 
 router.get("/historico-pdf", authMiddleware, async (req, res, next) => {
   try {
@@ -116,12 +117,16 @@ router.get("/historico-pdf", authMiddleware, async (req, res, next) => {
       const fotos = fotosPorServico[servico.id] || [];
       fotos.forEach((foto) => {
         try {
-          if (fs.existsSync(foto.url)) {
+          const filename = foto.url.startsWith("/uploads/")
+            ? foto.url.replace("/uploads/", "")
+            : null;
+          const fotoPath = filename ? path.join(UPLOADS_DIR, filename) : null;
+          if (fotoPath && fs.existsSync(fotoPath)) {
             if (doc.y > 600) {
               doc.addPage();
             }
             doc.moveDown(0.3);
-            doc.image(foto.url, { width: 150 });
+            doc.image(fotoPath, { width: 150 });
           }
         } catch (error) {
           // ignora foto que não pode ser carregada no PDF

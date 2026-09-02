@@ -1,18 +1,20 @@
 const express = require("express");
 
-const { pool } = require("../db");
 const { authMiddleware } = require("../middleware/auth");
-const { HttpError } = require("../middleware/errorHandler");
+const { getServicoById, getServicosByCliente } = require("../controllers/servicoController");
+const { getFotosByServico } = require("../controllers/fotoController");
 
 const router = express.Router();
 
+// GET /api/servicos — Todos os serviços do cliente autenticado
 router.get("/", authMiddleware, async (req, res, next) => {
   try {
+    const { pool } = require("../db");
     const { rows } = await pool.query(
       `SELECT
         s.id, s.tipo, s.descricao, s.data_servico, s.responsavel, s.valor, s.status,
         COALESCE(
-          json_agg(json_build_object('id', f.id, 'tipo', f.tipo, 'url', f.url))
+          json_agg(json_build_object('id', f.id, 'tipo', f.tipo, 'url', f.url, 'descricao', f.descricao))
           FILTER (WHERE f.id IS NOT NULL),
           '[]'
         ) AS fotos
@@ -30,31 +32,10 @@ router.get("/", authMiddleware, async (req, res, next) => {
   }
 });
 
-router.get("/:id/fotos", authMiddleware, async (req, res, next) => {
-  try {
-    const servicoId = Number(req.params.id);
+// GET /api/servicos/:id — Obter um serviço específico
+router.get("/:id", authMiddleware, getServicoById);
 
-    const servicoResult = await pool.query(
-      "SELECT id FROM servicos WHERE id = $1 AND cliente_id = $2",
-      [servicoId, req.clienteId]
-    );
-
-    if (!servicoResult.rows[0]) {
-      throw new HttpError(404, "Serviço não encontrado.");
-    }
-
-    const fotosResult = await pool.query(
-      "SELECT id, tipo, url FROM fotos_servico WHERE servico_id = $1 ORDER BY tipo",
-      [servicoId]
-    );
-
-    res.json({
-      antes: fotosResult.rows.filter((foto) => foto.tipo === "antes"),
-      depois: fotosResult.rows.filter((foto) => foto.tipo === "depois"),
-    });
-  } catch (error) {
-    next(error);
-  }
-});
+// GET /api/servicos/:id/fotos — Obter fotos de um serviço
+router.get("/:id/fotos", authMiddleware, getFotosByServico);
 
 module.exports = router;

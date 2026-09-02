@@ -35,4 +35,30 @@ INSERT INTO servicos (cliente_id, tipo, descricao, data_servico, responsavel, st
 SELECT id, 'Visita técnica de acompanhamento', 'Visita de rotina para avaliação do jardim.', '2026-09-05', 'Juliano Silvestre Diogo', 'agendado', NULL
 FROM clientes WHERE cpf = '52998224725';
 
+-- Observações para os serviços
+INSERT INTO observacoes (servico_id, titulo, descricao)
+SELECT s.id, 'Plantio realizado com sucesso', 'Todos os canteiros foram preparados e plantados. Plantas se adaptando bem ao solo.'
+FROM servicos s
+JOIN clientes c ON s.cliente_id = c.id
+WHERE c.cpf = '52998224725' AND s.tipo = 'Implantação de jardim residencial';
+
+INSERT INTO observacoes (servico_id, titulo, descricao)
+SELECT s.id, 'Solo corrigido', 'pH ajustado para 6.5. Solo agora adequado para plantas ornamentais.'
+FROM servicos s
+JOIN clientes c ON s.cliente_id = c.id
+WHERE c.cpf = '52998224725' AND s.tipo = 'Adubação e tratamento de solo';
+
+-- Próximos cuidados
+INSERT INTO proximos_cuidados (cliente_id, titulo, descricao, data_prevista, status)
+SELECT c.id, 'Aplicação de pesticida natural', 'Aplicar tratamento preventivo contra pragas no gramado e canteiros.', '2026-09-20', 'pendente'
+FROM clientes c WHERE c.cpf = '52998224725';
+
+INSERT INTO proximos_cuidados (cliente_id, titulo, descricao, data_prevista, status)
+SELECT c.id, 'Poda de verão', 'Poda de formatação de arbustos e árvores para manter forma adequada.', '2026-10-15', 'pendente'
+FROM clientes c WHERE c.cpf = '52998224725';
+
+INSERT INTO proximos_cuidados (cliente_id, titulo, descricao, data_prevista, status)
+SELECT c.id, 'Adubação de manutenção', 'Reposição de nutrientes do solo para manter qualidade.', '2026-09-30', 'pendente'
+FROM clientes c WHERE c.cpf = '52998224725';
+
 -- CPF de teste para login no portal: 529.982.247-25

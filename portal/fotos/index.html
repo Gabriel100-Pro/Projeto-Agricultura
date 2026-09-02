@@ -71,11 +71,13 @@
 
     <main class="portal-content">
       <h1>Fotos do Jardim</h1>
-      <p class="portal-subtitle">Em breve você poderá acompanhar aqui os registros fotográficos do seu jardim.</p>
+      <p class="portal-subtitle">Registros fotográficos dos seus serviços realizados.</p>
 
-      <div class="portal-empty-state">
-        <i class="fa-solid fa-camera-retro"></i>
-        <p>Nenhuma foto disponível no momento.</p>
+      <div class="portal-fotos-grid" id="portalFotosContainer" aria-live="polite">
+        <div class="portal-empty-state">
+          <i class="fa-solid fa-spinner fa-spin"></i>
+          <p>Carregando fotos...</p>
+        </div>
       </div>
     </main>
   </div>

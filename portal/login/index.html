@@ -53,12 +53,53 @@
           <p id="portalCpfNotFoundText"></p>
         </div>
 
+        <button class="portal-register-trigger" type="button" id="portalRegisterTrigger" hidden>
+          <i class="fa-solid fa-user-plus" aria-hidden="true"></i>
+          <span>Cadastrar CPF</span>
+        </button>
+
         <button class="portal-login-submit" type="submit" id="portalLoginSubmit">
           <span class="portal-login-submit-label">Entrar</span>
           <i class="fa-solid fa-spinner fa-spin portal-login-spinner" hidden></i>
         </button>
 
         <p class="portal-message" id="portalLoginMessage" role="status" aria-live="polite"></p>
+      </form>
+
+      <form id="portalRegisterForm" novalidate hidden>
+        <div class="portal-register-divider"><span>Cadastre seu CPF</span></div>
+
+        <div class="portal-field">
+          <label for="portalCadastroNome">Nome</label>
+          <input id="portalCadastroNome" name="nome" type="text" maxlength="150" autocomplete="name" required />
+          <p class="portal-field-error" id="portalCadastroNomeError" role="alert"></p>
+        </div>
+
+        <div class="portal-field">
+          <label for="portalCadastroCpf">CPF</label>
+          <input id="portalCadastroCpf" name="cpf" type="text" readonly />
+        </div>
+
+        <div class="portal-field">
+          <label for="portalCadastroEmail">E-mail <span>(opcional)</span></label>
+          <input id="portalCadastroEmail" name="email" type="email" maxlength="150" autocomplete="email" />
+        </div>
+
+        <div class="portal-field">
+          <label for="portalCadastroTelefone">Telefone <span>(opcional)</span></label>
+          <input id="portalCadastroTelefone" name="telefone" type="tel" maxlength="20" autocomplete="tel" />
+        </div>
+
+        <div class="portal-field">
+          <label for="portalCadastroEndereco">Endereço <span>(opcional)</span></label>
+          <input id="portalCadastroEndereco" name="endereco" type="text" maxlength="255" autocomplete="street-address" />
+        </div>
+
+        <button class="portal-login-submit" type="submit" id="portalRegisterSubmit">
+          <span class="portal-register-submit-label">Cadastrar CPF</span>
+          <i class="fa-solid fa-spinner fa-spin portal-register-spinner" hidden></i>
+        </button>
+        <p class="portal-message" id="portalRegisterMessage" role="status" aria-live="polite"></p>
       </form>
     </div>
 
